@@ -13,7 +13,7 @@ namespace JwtAuthentication.Services
 
         bool HasUsername(string username);
 
-        void Update(User originalUser, UserDto.Update updateUser);
+        void Update(User originalUser, UpdateDto updateUser);
 
         void Save(User user);
     }

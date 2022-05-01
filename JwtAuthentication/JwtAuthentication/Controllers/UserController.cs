@@ -5,18 +5,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace JwtAuthentication.Controllers
 {
- 
-    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
+
+
     [Route("user")]
     [ApiController]
     public class UserController : ControllerBase
     {
         private static int? UserIdByClaim(Claim userId)
         {
-           
+
             if(int.TryParse(userId.Value, out int parsed) )
             {
                 return parsed - ushort.MaxValue;
@@ -24,7 +25,7 @@ namespace JwtAuthentication.Controllers
 
             return null;
         }
- 
+
         private readonly IUserService _userService;
 
         public UserController(IUserService userService)
@@ -49,8 +50,8 @@ namespace JwtAuthentication.Controllers
             {
                 _userService.Save(user);
                 return StatusCode(201);
-            } 
-            
+            }
+
         }
 
 
@@ -61,14 +62,14 @@ namespace JwtAuthentication.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult Login([FromBody] UserDto.Login login)
+        public ActionResult Login([FromBody] LoginDto login)
         {
           string? token = _userService.AuthenticateUser(login.Username, login.Password);
 
           if(token != null)
           {
                 return Ok(new { token = token });
-          } 
+          }
           else
           {
              return Unauthorized (new { message = "Authentication is not valid" });
@@ -79,10 +80,11 @@ namespace JwtAuthentication.Controllers
         [Route("get")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionResult GetUser()
         {
             var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
-         
+
                 int? parsed = UserIdByClaim(userId);
             if (parsed.HasValue)
             {
@@ -92,13 +94,14 @@ namespace JwtAuthentication.Controllers
                     return Ok(new { Name = user.Name, Username = user.Username });
                 }
 
-            }              
+            }
              return NotFound(new { message = "User not found" });
         }
 
         [HttpDelete]
         [Route("delete")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionResult Delete()
         {
             var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
@@ -114,8 +117,8 @@ namespace JwtAuthentication.Controllers
                     return Ok();
                 }
             }
-           return Conflict(new { message = "Delete operation was not succeded" });        
-          
+           return Conflict(new { message = "Delete operation was not succeded" });
+
         }
 
         [HttpPut]
@@ -123,7 +126,8 @@ namespace JwtAuthentication.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult Update([FromBody] UserDto.Update updateUsr)
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public ActionResult Update([FromBody] UpdateDto updateUsr)
         {
            var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
 
@@ -144,6 +148,6 @@ namespace JwtAuthentication.Controllers
             return Conflict(new { message = "Update operation was not succeded" });
         }
 
-      
+
     }
 }

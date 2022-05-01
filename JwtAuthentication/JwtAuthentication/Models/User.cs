@@ -4,17 +4,15 @@ using System.Text.Json.Serialization;
 
 namespace JwtAuthentication.Models
 {
-
-  
     public class User
     {
         private string _password;
-    
-        [Key] 
+
+        [Key]
         [JsonIgnore]
         public int Id { get; set; }
 
-        [Required]  
+        [Required]
         public string Username { get; set; }
 
         [Required]
@@ -28,5 +26,5 @@ namespace JwtAuthentication.Models
             return Auth.BCryptPassword.PasswordCompare(hash: _password, password);
         }
     }
- 
+
 }

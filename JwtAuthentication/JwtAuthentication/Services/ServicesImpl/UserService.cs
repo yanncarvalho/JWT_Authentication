@@ -40,7 +40,7 @@ namespace JwtAuthentication.Services.ServicesImpl
 
         public User? Get(int id)
         {
-            return _context.Users.Find(id);  
+            return _context.Users.Find(id);
         }
 
         public bool HasUsername(string username)
@@ -54,7 +54,7 @@ namespace JwtAuthentication.Services.ServicesImpl
             _context.SaveChanges();
         }
 
-        void IUserService.Update(User originalUser, UserDto.Update updateUser)
+        void IUserService.Update(User originalUser, UpdateDto updateUser)
         {
             _context.Users.Attach(originalUser);
 

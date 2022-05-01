@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k6UdVNPXYsVo6CSIyI4DmVz0PKC3hDGnBPGoDKyddLt0VVsACdF7+7HJ0ith+y9k7T7FMBrd/KaiaKU0iCyV0w==",
+  "dgSpecHash": "98JEQK9RYPXtqiQIZMRAl8FWvlAEDLkf0M+Ky37ac28X4qadAfDghzTWspyLiAcY5VWgFyWmEFXZDif5BPHlXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\Jwt-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj",
+  "projectFilePath": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\JWT-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yann Gabriel\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Yann Gabriel\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\Jwt-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj": {}
+    "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\JWT-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\Jwt-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj": {
+    "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\JWT-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\Jwt-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj",
+        "projectUniqueName": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\JWT-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj",
         "projectName": "JwtAuthentication",
-        "projectPath": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\Jwt-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj",
+        "projectPath": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\JWT-Authentication\\JwtAuthentication\\JwtAuthentication\\JwtAuthentication.csproj",
         "packagesPath": "C:\\Users\\Yann Gabriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\Jwt-Authentication\\JwtAuthentication\\JwtAuthentication\\obj\\",
+        "outputPath": "C:\\Users\\Yann Gabriel\\Documents\\Programação\\C#\\JWT-Authentication\\JwtAuthentication\\JwtAuthentication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yann Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",

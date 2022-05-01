@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using JwtAuthentication.Services.ServicesImpl;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,9 +31,9 @@ void ConfigureServices(IServiceCollection services, IConfiguration Configuration
         In = ParameterLocation.Header,
         Description = @"JWT Authorization header using the Bearer scheme. <br>
                         Enter 'Bearer token' as the input below. <br>
-                        Example: 'Bearer 12345abcdef'", 
+                        Example: 'Bearer 12345abcdef'",
                 });
-   
+
         c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
@@ -47,9 +48,9 @@ void ConfigureServices(IServiceCollection services, IConfiguration Configuration
                          new string[] {}
                     }
                 });
- 
+
     });
-services.AddScoped<IUserService, JwtAuthentication.Services.ServicesImpl.UserService>();
+services.AddScoped<IUserService, UserService>();
 
     var connection = Configuration["MySql:Connection"];
     services.AddDbContext<UserContext>(options =>
